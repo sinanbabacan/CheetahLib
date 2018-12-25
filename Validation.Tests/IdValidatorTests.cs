@@ -1,17 +1,16 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace Validation.Tests
+namespace TurkishNationalIdValidator.Tests
 {
     [TestFixture]
-    public class TurkishNationalIdValidatorTests
+    public class IdValidatorTests
     {
         [Test]
         [TestCase(null)]
         [TestCase("")]
         public void Validate_WhenNationalIdIsNullOrEmpty_ThrowException(string nationalId)
         {
-            var validator = new TurkishNationalIdValidator();
+            var validator = new IdValidator();
 
             Assert.That(() => validator.Validate(nationalId), Throws.ArgumentNullException);
         }
@@ -19,7 +18,7 @@ namespace Validation.Tests
         [Test]
         public void Validate_WhenNationalIdLengthLessThanEleven_ThrowException()
         {
-            var validator = new TurkishNationalIdValidator();
+            var validator = new IdValidator();
 
             Assert.That(() => validator.Validate("1000000000"), Throws.ArgumentException);
         }
@@ -27,7 +26,7 @@ namespace Validation.Tests
         [Test]
         public void Validate_WhenNationalIdIsNotNumeric_ThrowException()
         {
-            var validator = new TurkishNationalIdValidator();
+            var validator = new IdValidator();
 
             Assert.That(() => validator.Validate("aaaaaaaaaaa"), Throws.ArgumentException);
         }
@@ -37,7 +36,7 @@ namespace Validation.Tests
         [TestCase("11111111210", Description = "")]
         public void Validate_WhenNationalIdWrongFormat_ReturnFalse(string nationalId)
         {
-            var validator = new TurkishNationalIdValidator();
+            var validator = new IdValidator();
 
             var result = validator.Validate(nationalId);
 
@@ -47,7 +46,7 @@ namespace Validation.Tests
         [Test]
         public void Validate_WhenNationalIdTrueFormat_ReturnTrue()
         {
-            var validator = new TurkishNationalIdValidator();
+            var validator = new IdValidator();
 
             var result = validator.Validate("65350205994");
 

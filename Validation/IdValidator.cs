@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace Validation
+namespace TurkishNationalIdValidator
 {
-    public class TurkishNationalIdValidator : INationalIdValidator
+    public class IdValidator
     {
         public bool Validate(string nationalId)
         {
