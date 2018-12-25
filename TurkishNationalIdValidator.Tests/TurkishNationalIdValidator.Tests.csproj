@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Validation\TurkishNationalIdValidator.csproj" />
+    <ProjectReference Include="..\TurkishNationalIdValidator\TurkishNationalIdValidator.csproj" />
   </ItemGroup>
 
 </Project>
